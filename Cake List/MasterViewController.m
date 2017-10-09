@@ -34,9 +34,9 @@
     CakeCell *cell = (CakeCell*)[tableView dequeueReusableCellWithIdentifier:@"CakeCell"];
     Cake *cake = self.cakeObjectsArray[indexPath.row];
     cell.titleLabel.text = cake.title;
-    cell.descriptionLabel.text = cake.cakeDescription;
+    cell.descriptionLabel.text = [NSString stringWithFormat:@"Description: %@", cake.cakeDescription];
     [cell configureImageViewWithURLString:cake.imageUrl];
-    
+    cell.backgroundColor = (indexPath.row % 2) ? [UIColor clearColor]: [UIColor colorWithRed:0 green:0 blue:0 alpha:0.05];
     return cell;
 }
 
